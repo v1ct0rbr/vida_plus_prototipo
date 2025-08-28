@@ -1,3 +1,12 @@
+.theme-light .list {
+  background: transparent;
+  color: var(--text);
+}
+.theme-light .list .item {
+  background: #f8fafc;
+  border: 1px solid #e6edf3;
+  color: var(--text);
+}
 /* Base styles: accessible, responsive, high-contrast friendly */
 :root{
   /* base tokens (used if no theme class present) */
@@ -41,20 +50,43 @@
 /* Light-theme component overrides to ensure readable contrast and no blue accents */
 .theme-light body{ background: var(--bg); color: var(--text); }
 .theme-light .header{ background: rgba(255,255,255,0.92); backdrop-filter: none; border-bottom: 1px solid #e6edf3; }
-.theme-light .brand .logo{ background: conic-gradient(from 180deg, var(--accent), var(--accent-2)); box-shadow: 0 0 0 1px rgba(15,23,42,0.04); }
+.theme-light .brand .logo{ background: var(--accent); box-shadow: 0 0 0 1px rgba(15,23,42,0.04); }
 .theme-light .navlinks a, .theme-light .navlinks button{ background: transparent; border:1px solid #eef3f6; color:var(--text); }
 .theme-light .navlinks a:hover, .theme-light .navlinks button:hover{ border-color:#e1e6ea }
-.theme-light .card{ background: linear-gradient(180deg,#ffffff,#f8fafc); border:1px solid #e6edf3; box-shadow: 0 8px 24px rgba(15,23,42,0.06); color:var(--text) }
+.theme-light .card{ background: #ffffff; border:1px solid #e6edf3; box-shadow: 0 8px 24px rgba(15,23,42,0.06); color:var(--text) }
 .theme-light .badge{ border:1px solid #eef3f6; color:var(--muted); background:transparent }
 .theme-light .btn{ background:#ffffff; border:1px solid #eef3f6; color:var(--text); }
 .theme-light .btn:hover{ border-color:#d7dfe6 }
-.theme-light .btn.primary{ background: linear-gradient(90deg, var(--accent), var(--accent-2)); color:#ffffff; border:none }
+.theme-light .btn.primary{ background: var(--accent); color:#ffffff; border:none }
 .theme-light input, .theme-light select, .theme-light textarea{ background:#ffffff; color:var(--text); border:1px solid #eef3f6 }
 .theme-light input::placeholder{ color:#9ca3af }
 .theme-light .table th{ color:#0b1222 }
 .theme-light .table tr:hover{ background:#f1f5f9 }
 .theme-light .kpi{ background:#ffffff; border:1px solid #eef3f6; color:var(--text) }
 .theme-light .footer{ border-top:1px solid #eef3f6; color:#6b7280; background:transparent }
+
+/* Correções para listas, cards e itens no tema claro */
+.theme-light ul, .theme-light ol {
+  color: var(--text);
+}
+.theme-light li {
+  color: var(--text);
+}
+.theme-light .muted, .theme-light .muted * {
+  color: var(--muted) !important;
+}
+.theme-light .card {
+  background: #ffffff;
+  color: var(--text);
+}
+.theme-light .card ul, .theme-light .card ol {
+  color: var(--text);
+}
+.theme-light .card li {
+  color: var(--text);
+}
+
+
 
 
 *{box-sizing:border-box}
@@ -65,7 +97,9 @@ body{
   background: var(--bg);
   color: var(--text);
   font-family: var(--font);
-  line-height:1.6;
+  line-height:1.7;
+  font-size: 1.18rem;
+  letter-spacing: 0.01em;
 }
 
 a{color: var(--accent)}
@@ -96,6 +130,11 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus{
 .nav{
   display:flex; align-items:center; justify-content:space-between;
   gap: 1rem;
+}
+.navlinks a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 .brand{
   display:flex; align-items:center; gap:.75rem;
@@ -135,15 +174,14 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus{
   border:1px solid #1f2937; border-radius: 1rem;
   padding:1rem; box-shadow: 0 10px 24px rgba(0,0,0,.35);
 }
-.card h3{margin-top:0}
+.card h3{margin-top:0; font-size:1.25em;}
 .badge{display:inline-block; padding:.2rem .6rem; border-radius:999px; border:1px solid #334155; color:var(--muted); font-size:.8rem}
 .btn{
   display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
   padding:.75rem 1rem; border-radius: .9rem; border:1px solid #334155;
   color: var(--text); background:#0b1222; cursor:pointer; text-decoration:none; font-weight:700;
 }
-.btn:hover{border-color:#475569}
-.btn.primary{background: var(--accent); color:#0b1222}
+.btn.primary{background: var(--accent); color:#0b1222; font-weight: 800;}
 .btn.ghost{background:transparent}
 .btn.full{width:100%}
 
@@ -175,3 +213,188 @@ legend{padding:0 .25rem}
   border-top:1px solid #1f2937; margin-top:2rem; padding:2rem 0; color:#94a3b8; text-align:center;
 }
 .visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap;border:0;padding:0;margin:-1px}
+
+/* === Usabilidade aprimorada para idosos === */
+body {
+  font-size: 1.18rem;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+}
+
+.brand .logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+}
+
+.card {
+  border: 2px solid #1f2937;
+  border-radius: 1.3rem;
+  padding: 1.5rem;
+  box-shadow: 0 10px 24px rgba(0,0,0,.22);
+  margin-bottom: 1.5rem;
+}
+.card h3 {
+  margin-top: 0;
+  font-size: 1.25em;
+}
+
+.btn, .theme-light .btn, .theme-light .btn.primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .7rem;
+  padding: 1.1rem 1.5rem;
+  border-radius: 1.2rem;
+  border: 2px solid #334155;
+  color: var(--text);
+  background: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.13rem;
+  min-height: 3.2rem;
+  min-width: 3.2rem;
+  transition: box-shadow .15s;
+}
+.btn.primary, .theme-light .btn.primary {
+  background: var(--accent);
+  color: #0b1222;
+  font-weight: 800;
+}
+.btn:hover, .btn:focus, .theme-light .btn:hover, .theme-light .btn:focus {
+  border-color: #16a34a !important;
+  box-shadow: 0 0 0 3px #16a34a44 !important;
+  outline: none;
+}
+
+/* Forçar prioridade dos botões no tema claro */
+.theme-light .btn, .theme-light .btn.primary {
+  background: #ffffff !important;
+  color: var(--text) !important;
+  border: 2px solid #eef3f6 !important;
+}
+.theme-light .btn.primary {
+  background: var(--accent) !important;
+  color: #ffffff !important;
+  border: none !important;
+}
+.theme-light .btn:hover, .theme-light .btn:focus {
+  border-color: #16a34a !important;
+  box-shadow: 0 0 0 3px #16a34a44 !important;
+  outline: none !important;
+}
+
+/* Forçar prioridade dos botões no tema dark */
+.theme-dark .btn, .theme-dark .btn.primary {
+  background: #0b1222 !important;
+  color: var(--text) !important;
+  border: 2px solid #334155 !important;
+}
+.theme-dark .btn.primary {
+  background: var(--accent) !important;
+  color: #0b1222 !important;
+  border: none !important;
+}
+.theme-dark .btn:hover, .theme-dark .btn:focus {
+  border-color: #6ee7b7 !important;
+  box-shadow: 0 0 0 3px #6ee7b744 !important;
+  outline: none !important;
+}
+
+label {
+  display: block;
+  margin: .7rem 0 .35rem;
+  font-size: 1.08em;
+  font-weight: 600;
+}
+input, select, textarea {
+  width: 100%;
+  background: #0b1222;
+  color: var(--text);
+  border: 2px solid #334155;
+  padding: 1.1rem;
+  border-radius: .7rem;
+  font-size: 1.08em;
+}
+input::placeholder {
+  color: #94a3b8;
+  font-size: 1em;
+}
+
+.status .pill {
+  border: 2px solid #334155;
+  padding: .5rem 1.1rem;
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 1.08rem;
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+}
+.status {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Correção específica para pills do status em client/index.html */
+.status {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 0.7rem !important;
+}
+.status .pill {
+  margin-bottom: 0 !important;
+}
+
+.table th, .table td {
+  border-bottom: 1px solid #1f2937;
+  padding: 1.1rem .7rem;
+  text-align: left;
+  font-size: 1.08em;
+}
+.table th {
+  color: #e2e8f0;
+  font-weight: 800;
+  font-size: 1.13em;
+}
+
+.footer {
+  border-top: 1px solid #1f2937;
+  margin-top: 2.5rem;
+  padding: 2.5rem 0;
+  color: #94a3b8;
+  text-align: center;
+  font-size: 1.08em;
+}
+
+/* Ajustes extras para tema claro */
+.theme-light input, .theme-light select, .theme-light textarea {
+  background: #ffffff;
+  color: var(--text);
+  border: 2px solid #eef3f6;
+  padding: 1.1rem;
+  border-radius: .7rem;
+  font-size: 1.08em;
+}
+.theme-light input::placeholder {
+  color: #9ca3af;
+  font-size: 1em;
+}
+.theme-light .card {
+  background: #ffffff;
+  border: 2px solid #e6edf3;
+  color: var(--text);
+  box-shadow: 0 8px 24px rgba(15,23,42,0.06);
+}
+.theme-light .status .pill {
+  border: 2px solid #e6edf3;
+  color: #6b7280;
+  background: #f8fafc;
+}
+
+/* Garantir largura total para botões de atalho em client/index.html */
+.shortcut-grid .btn.full {
+  width: 100% !important;
+  min-width: 0 !important;
+}

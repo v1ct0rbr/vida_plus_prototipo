@@ -1,3 +1,88 @@
+/* Dashboard grid para client/index.html */
+.dashboard-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+  align-items: flex-start;
+}
+.shortcuts, .status-card {
+  flex: 1 1 340px;
+  min-width: 300px;
+}
+.shortcut-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+.shortcut-grid .btn.full {
+  flex: 1 1 180px;
+  min-width: 140px;
+}
+.status-card ul {
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.status-card .tip {
+  background: var(--panel);
+  color: var(--muted);
+  border-radius: .7rem;
+  padding: .7rem 1rem;
+  font-size: .98rem;
+}
+.help-card {
+  margin-top: 2.5rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 900px) {
+  .dashboard-grid {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .shortcut-grid {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .help-card {
+    margin-top: 1.5rem;
+  }
+}
+/* Hero grid para página inicial */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2.5rem;
+  align-items: flex-start;
+  margin-bottom: 2.5rem;
+}
+.hero-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.hero-side {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .hero-side {
+    flex-direction: row;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .hero-side .card {
+    flex: 1 1 250px;
+    min-width: 220px;
+  }
+}
 /* Client styles */
 .hero{
   display:grid; gap:1rem; grid-template-columns:1.2fr .8fr; align-items:center;
