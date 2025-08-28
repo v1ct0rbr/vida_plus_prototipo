@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Meus Medicamentos · Vida+</title>
+  <link rel="stylesheet" href="../assets/css/base.css"/>
+  <script defer src="https://unpkg.com/lucide@latest"></script>
+  <script defer src="../assets/js/main.js"></script>
+  <!-- Theme toggle handled centrally in assets/js/main.js -->
+  <script defer src="../assets/js/mock-api.js"></script>
+</head>
+<body>
+<div class="visually-hidden" aria-live="polite" id="aria-live"></div>
+
+<header class="header" role="banner">
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+  <div class="container nav" aria-label="Barra de navegação">
+    <div class="brand">
+          <span aria-label="Vida Mais" style="display: inline-block; width: 100px; ">
+            <img src="../assets/images/logo.png" alt="Vida Mais" style="width: 100%; border-radius: 10px;">
+          </span>
+        </div>
+    <nav class="navlinks" aria-label="Links principais">
+  <a href="../index.html" aria-current="false">Início</a>
+  <a href="index.html">Área do Cidadão</a>
+  <a href="../admin/index.html">Admin</a>
+  <button id="toggle-contrast" class="btn ghost" aria-pressed="false"><span class="theme-label"><i data-lucide="sun" aria-hidden="true"></i> Tema</span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="container" role="main">
+
+<link rel="stylesheet" href="../assets/css/client.css"/>
+<section class="card" aria-labelledby="sec-meds">
+  <h2 id="sec-meds"><i data-lucide="tablet" aria-hidden="true"></i> Medicamentos contínuos</h2>
+  <p>Veja seu estoque estimado e renove receitas quando necessário. Utilize as ações para solicitar renovação, ver histórico e localizar farmácias parceiras.</p>
+  <div class="toolbar" style="margin-top:1rem">
+    <button class="btn">Solicitar renovação</button>
+    <button class="btn ghost">Histórico de dispensas</button>
+    <button class="btn ghost">Localizar farmácia</button>
+  </div>
+  <div class="table-wrap" role="region" aria-label="Tabela de medicamentos com ações">
+    <table class="table" role="table">
+      <thead><tr><th>Idoso</th><th>Medicamento</th><th>Estoque</th><th>Receita vence</th><th>Status</th><th>Ação</th></tr></thead>
+      <tbody id="meds-tbody"></tbody>
+    </table>
+  </div>
+</section>
+<section class="card" aria-labelledby="meds-help" style="margin-top:1rem">
+  <h3 id="meds-help">Observações</h3>
+  <ul>
+    <li>Status 'A renovar' indica que a receita precisa ser reemitida.</li>
+    <li>Se o estoque estiver crítico, o sistema tentará enviar lembrete automático para o cuidador.</li>
+  </ul>
+</section>
+<script defer src="../assets/js/client.js"></script>
+<!-- Icons are initialized centrally in assets/js/main.js -->
+
+</main>
+<footer class="footer">
+  <div class="container">Protótipo educativo • Vida+ • Acessível, responsivo e sem dados reais.</div>
+</footer>
+</body>
+</html>

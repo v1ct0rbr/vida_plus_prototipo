@@ -1,0 +1,21 @@
+/* Client styles */
+.hero{
+  display:grid; gap:1rem; grid-template-columns:1.2fr .8fr; align-items:center;
+}
+.hero h1{font-size: clamp(1.8rem, 3.2vw, 3rem); margin:.5rem 0}
+.hero p{color:var(--muted)}
+.hero .cta{display:flex; gap:.75rem; flex-wrap:wrap}
+@media (max-width: 900px){ .hero{grid-template-columns:1fr} }
+
+.list{
+  display:grid; gap:1rem; grid-template-columns: repeat(3, minmax(0,1fr));
+}
+.list .item{padding:1rem; border:1px solid #334155; border-radius:1rem; background:#0b1222}
+@media (max-width: 900px){ .list{grid-template-columns:1fr} }
+
+.status{
+  display:flex; align-items:center; gap:.5rem; flex-wrap:wrap;
+}
+.status .pill{
+  border:1px solid #334155; padding:.3rem .6rem; border-radius:999px; color:var(--muted); font-size:.85rem
+}

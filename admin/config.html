@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Admin · Configurações · Vida+</title>
+  <link rel="stylesheet" href="../assets/css/base.css"/>
+  <script defer src="https://unpkg.com/lucide@latest"></script>
+  <script defer src="../assets/js/main.js"></script>
+  <!-- Theme toggle handled centrally in assets/js/main.js -->
+  <script defer src="../assets/js/mock-api.js"></script>
+</head>
+<body>
+<div class="visually-hidden" aria-live="polite" id="aria-live"></div>
+
+<header class="header" role="banner">
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+  <div class="container nav" aria-label="Barra de navegação">
+    <div class="brand">
+          <span aria-label="Vida Mais" style="display: inline-block; width: 100px; ">
+            <img src="../assets/images/logo.png" alt="Vida Mais" style="width: 100%; border-radius: 10px;">
+          </span>
+        </div>
+    <nav class="navlinks" aria-label="Links principais">
+  <a href="../index.html" aria-current="false">Início</a>
+  <a href="../client/index.html">Área do Cidadão</a>
+  <a href="index.html">Admin</a>
+  <button id="toggle-contrast" class="btn ghost" aria-pressed="false"><span class="theme-label"><i data-lucide="sun" aria-hidden="true"></i> Tema</span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="container" role="main">
+
+<link rel="stylesheet" href="../assets/css/admin.css"/>
+<section class="card">
+  <h2>Parâmetros do monitoramento</h2>
+    <h2><i data-lucide="settings" aria-hidden="true"></i> Parâmetros do monitoramento</h2>
+  <form>
+    <fieldset>
+      <legend>Lembretes</legend>
+      <label for="dias-receita">Dias antes do vencimento da receita</label>
+      <input id="dias-receita" type="number" value="10"/>
+      <label for="dias-estoque">Estoque mínimo de medicamentos (dias)</label>
+      <input id="dias-estoque" type="number" value="7"/>
+    </fieldset>
+    <fieldset>
+      <legend>Contato</legend>
+      <label for="canal">Canal preferencial padrão</label>
+      <select id="canal">
+        <option>Ligação</option>
+        <option>WhatsApp</option>
+        <option>SMS</option>
+      </select>
+    </fieldset>
+    <button class="btn primary" type="button" onclick="announce('Configurações salvas')">Salvar</button>
+  </form>
+</section>
+
+</main>
+<footer class="footer">
+  <div class="container">Protótipo educativo • Vida+ • Acessível, responsivo e sem dados reais.</div>
+</footer>
+  <!-- Icons are initialized centrally in assets/js/main.js -->
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Vida+ · Monitoramento Inteligente</title>
+  <link rel="stylesheet" href="assets/css/base.css"/>
+  <link rel="stylesheet" href="assets/css/client.css"/>
+  <script defer src="https://unpkg.com/lucide@latest"></script>
+  <script defer src="assets/js/mock-api.js"></script>
+  <script defer src="assets/js/main.js"></script>
+  <script defer src="assets/js/client.js"></script>
+</head>
+<body>
+<div class="visually-hidden" aria-live="polite" id="aria-live"></div>
+<header class="header">
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+  <div class="container nav">
+    <div class="brand">
+          <span aria-label="Vida Mais" style="display: inline-block; width: 100px; ">
+            <img src="assets/images/logo.png" alt="Vida Mais" style="width: 100%; border-radius: 10px;">
+          </span>
+        </div>
+    <nav class="navlinks" aria-label="Navegação principal">
+      <a href="client/index.html"><i data-lucide="users" aria-hidden="true"></i> Área do Cidadão</a>
+      <a href="admin/index.html"><i data-lucide="settings" aria-hidden="true"></i> Admin</a>
+  <button id="toggle-contrast" class="btn ghost" aria-pressed="false"><span class="theme-label"><i data-lucide="sun" aria-hidden="true"></i> Tema</span></button>
+    </nav>
+  </div>
+</header>
+<main id="main" class="container">
+  <section class="hero" aria-labelledby="titulo">
+    <div>
+  <h1 id="titulo"><i data-lucide="heart" aria-hidden="true"></i> Vida+ — Monitoramento inteligente para idosos</h1>
+      <p>Renove receitas, garanta seus medicamentos contínuos e mantenha seus exames em dia. O governo e a família juntos no cuidado preventivo.</p>
+  <p class="muted">Este protótipo demonstra fluxos de suporte para idosos: lista de medicamentos, agendamento de exames e solicitações administrativas. Os dados exibidos são fictícios para fins de demonstração.</p>
+      <div class="cta">
+        <a class="btn primary" href="client/index.html">Entrar como Cidadão</a>
+        <a class="btn" href="admin/index.html">Entrar como Admin</a>
+      </div>
+    <div class="card">
+      <h3>Selecionar cidade</h3>
+      <p>Simule dados por cidade (dados fictícios para demonstração).</p>
+      <label for="city-select">Cidade</label>
+      <select id="city-select" aria-label="Selecionar cidade">
+        <option>Fortaleza</option>
+        <option>São Paulo</option>
+        <option>Recife</option>
+      </select>
+    </div>
+    </div>
+    <aside class="card">
+      <h3>Como começar</h3>
+      <ol>
+        <li>Escolha a cidade no painel à esquerda para simular dados locais.</li>
+        <li>Acesse <a href="client/index.html">Área do Cidadão</a> para ver medicamentos, exames e perfil.</li>
+        <li>Administre solicitações e relatórios em <a href="admin/index.html">Painel Admin</a>.</li>
+      </ol>
+    </aside>
+    <div class="card">
+      <h3>Principais benefícios</h3>
+      <ul>
+        <li>Agendamento automático de exames</li>
+        <li>Lembrete e renovação de medicamentos</li>
+        <li>Comunicação por voz e linguagem simples</li>
+      </ul>
+    </div>
+  </section>
+  <section aria-labelledby="como-funciona" style="margin-top:2rem">
+    <h2 id="como-funciona">Como funciona</h2>
+    <div class="list">
+      <div class="item">
+        <h3>1) Detecta necessidades</h3>
+        <p>O sistema percebe quando a receita vai vencer ou quando um exame está atrasado.</p>
+      </div>
+      <div class="item">
+        <h3>2) Agenda e avisa</h3>
+        <p>Exames e consultas são agendados automaticamente e você recebe aviso por ligação, SMS ou WhatsApp.</p>
+      </div>
+      <div class="item">
+        <h3>3) Acompanha resultados</h3>
+        <p>A equipe de saúde acompanha indicadores e intervém quando necessário.</p>
+      </div>
+    <div class="card">
+      <h3>Selecionar cidade</h3>
+      <p>Simule dados por cidade (dados fictícios para demonstração).</p>
+      <label for="city-select">Cidade</label>
+      <select id="city-select" aria-label="Selecionar cidade">
+        <option>Fortaleza</option>
+        <option>São Paulo</option>
+        <option>Recife</option>
+      </select>
+    </div>
+    </div>
+  </section>
+</main>
+<footer class="footer"><div class="container">Protótipo educativo • Vida+ • Acessível, responsivo e sem dados reais.</div></footer>
+<script>
+// Theme toggle handled centrally in assets/js/main.js
+</script>
+<!-- Icons are initialized centrally in assets/js/main.js -->
+</body>
+</html>

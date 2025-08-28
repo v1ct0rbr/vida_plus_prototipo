@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Meu Perfil · Vida+</title>
+  <link rel="stylesheet" href="../assets/css/base.css"/>
+  <script defer src="https://unpkg.com/lucide@latest"></script>
+  <script defer src="../assets/js/main.js"></script>
+  <!-- Theme toggle handled centrally in assets/js/main.js -->
+  <script defer src="../assets/js/mock-api.js"></script>
+</head>
+<body>
+<div class="visually-hidden" aria-live="polite" id="aria-live"></div>
+
+<header class="header" role="banner">
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+  <div class="container nav" aria-label="Barra de navegação">
+    <div class="brand">
+          <span aria-label="Vida Mais" style="display: inline-block; width: 100px; ">
+            <img src="../assets/images/logo.png" alt="Vida Mais" style="width: 100%; border-radius: 10px;">
+          </span>
+        </div>
+    <nav class="navlinks" aria-label="Links principais">
+  <a href="../index.html" aria-current="false">Início</a>
+  <a href="index.html">Área do Cidadão</a>
+  <a href="../admin/index.html">Admin</a>
+  <button id="toggle-contrast" class="btn ghost" aria-pressed="false"><span class="theme-label"><i data-lucide="sun" aria-hidden="true"></i> Tema</span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="container" role="main">
+
+<link rel="stylesheet" href="../assets/css/client.css"/>
+<section class="card" aria-labelledby="perfil">
+  <h2 id="perfil"><i data-lucide="settings" aria-hidden="true"></i> Dados de contato e preferências</h2>
+  <form id="perfil-form">
+    <fieldset>
+      <legend>Contato</legend>
+      <label for="nome">Nome</label>
+      <input id="nome" name="nome" required placeholder="Ex.: Maria Souza"/>
+      <label for="telefone">Telefone</label>
+      <input id="telefone" name="telefone" inputmode="tel" placeholder="(xx) xxxxx-xxxx"/>
+      <label for="cuidador">Nome do cuidador (opcional)</label>
+      <input id="cuidador" name="cuidador" placeholder="Ex.: Carlos Souza"/>
+    </fieldset>
+    <fieldset>
+      <legend>Acessibilidade</legend>
+      <label for="preferenciaContato">Preferência de contato</label>
+      <select id="preferenciaContato" name="preferenciaContato" aria-describedby="pref-help">
+        <option>Ligação</option>
+        <option>WhatsApp</option>
+        <option>SMS</option>
+      </select>
+      <div id="pref-help" class="badge">Você pode alterar quando quiser.</div>
+    </fieldset>
+  <button class="btn primary">Salvar</button>
+  <button type="button" class="btn ghost" onclick="announce('Dados exportados')">Exportar vCard</button>
+  <div style="margin-top:1rem">Noções de privacidade: os dados aqui são fictícios e não são enviados a servidores externos neste protótipo.</div>
+  <span id="perfil-status" class="badge" aria-live="polite"></span>
+  </form>
+</section>
+<script defer src="../assets/js/client.js"></script>
+<!-- Icons are initialized centrally in assets/js/main.js -->
+
+</main>
+<footer class="footer">
+  <div class="container">Protótipo educativo • Vida+ • Acessível, responsivo e sem dados reais.</div>
+</footer>
+</body>
+</html>

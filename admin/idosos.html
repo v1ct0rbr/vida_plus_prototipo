@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Admin · Idosos · Vida+</title>
+  <link rel="stylesheet" href="../assets/css/base.css"/>
+  <script defer src="https://unpkg.com/lucide@latest"></script>
+  <script defer src="../assets/js/main.js"></script>
+  <!-- Theme toggle handled centrally in assets/js/main.js -->
+  <script defer src="../assets/js/mock-api.js"></script>
+</head>
+<body>
+<div class="visually-hidden" aria-live="polite" id="aria-live"></div>
+
+<header class="header" role="banner">
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+  <div class="container nav" aria-label="Barra de navegação">
+    <div class="brand">
+          <span aria-label="Vida Mais" style="display: inline-block; width: 100px; ">
+            <img src="../assets/images/logo.png" alt="Vida Mais" style="width: 100%; border-radius: 10px;">
+          </span>
+        </div>
+    <nav class="navlinks" aria-label="Links principais">
+  <a href="../index.html" aria-current="false">Início</a>
+  <a href="../client/index.html">Área do Cidadão</a>
+  <a href="index.html">Admin</a>
+  <button id="toggle-contrast" class="btn ghost" aria-pressed="false"><span class="theme-label"><i data-lucide="sun" aria-hidden="true"></i> Tema</span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="container" role="main">
+
+<link rel="stylesheet" href="../assets/css/admin.css"/>
+<section class="card" aria-labelledby="idosos">
+  <h2 id="idosos"><i data-lucide="users" aria-hidden="true"></i> Base de idosos</h2>
+  <div class="table-wrap" role="region" aria-label="Tabela de idosos">
+    <table class="table">
+      <thead><tr><th>Nome</th><th>Idade</th><th>Condições</th><th>Cuidador</th><th>Telefone</th></tr></thead>
+      <tbody id="idosos-tbody"></tbody>
+    </table>
+  </div>
+</section>
+<section class="card" style="margin-top:1rem">
+  <h3>Operações</h3>
+  <div class="toolbar"><button class="btn">Adicionar idoso</button> <button class="btn ghost">Exportar CSV</button></div>
+  <p class="muted">Mantenha os registros atualizados com telefone e contatos de emergência para agilizar comunic ação em situações críticas.</p>
+</section>
+<script defer src="../assets/js/admin.js"></script>
+<!-- Icons are initialized centrally in assets/js/main.js -->
+
+</main>
+<footer class="footer">
+  <div class="container">Protótipo educativo • Vida+ • Acessível, responsivo e sem dados reais.</div>
+</footer>
+</body>
+</html>
