@@ -196,8 +196,25 @@ fieldset{border:1px dashed #334155; border-radius:.6rem; padding:1rem; margin:1r
 legend{padding:0 .25rem}
 
 /* Tables */
-.table{width:100%; border-collapse: collapse; font-size:.95rem}
-.table th, .table td{border-bottom:1px solid #1f2937; padding:.75rem .5rem; text-align:left}
+/* Utility wrapper (optional): <div class="table-responsive"> <table class="table">...</table> </div> */
+.table-responsive{overflow:auto;-webkit-overflow-scrolling:touch;}
+
+/* Constrain table overflow to the table itself so it doesn't break page width */
+.table{
+  width:100%;
+  max-width:100%;
+  border-collapse: collapse;
+  font-size:.95rem;
+  display: block;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.table th, .table td{
+  border-bottom:1px solid #1f2937;
+  padding:.75rem .5rem;
+  text-align:left;
+  white-space: nowrap; /* keep cells readable and allow horizontal scroll */
+}
 .table th{color:#e2e8f0; font-weight:800}
 .table tr:hover{background:#0b1222}
 
@@ -397,4 +414,97 @@ input::placeholder {
 .shortcut-grid .btn.full {
   width: 100% !important;
   min-width: 0 !important;
+}
+
+/* Fix: ensure admin sidebar respects light theme (was hard-coded dark) */
+.theme-light .sidebar {
+  background: var(--panel, #ffffff) !important;
+  color: var(--text) !important;
+  border: 1px solid #e6edf3 !important;
+  box-shadow: none !important;
+}
+.theme-light .sidebar strong { color: var(--muted) !important; }
+.theme-light .sidebar a {
+  color: var(--text) !important;
+  background: transparent !important;
+  border-color: transparent !important;
+}
+.theme-light .sidebar a:hover {
+  border-color: #e1e6ea !important;
+  background: rgba(0,0,0,0.02) !important;
+}
+
+/* Menu superior responsivo */
+@media (max-width: 900px) {
+  .navlinks {
+    display: none !important;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: var(--panel);
+    position: absolute;
+    top: 100%;
+    right: 1.5rem;
+    min-width: 180px;
+    z-index: 100;
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.13);
+    padding: 1rem 1.2rem;
+    border: 1px solid #2226;
+  }
+  .navlinks.open {
+    display: flex !important;
+  }
+  .nav .btn.menu-toggle {
+    display: inline-flex !important;
+    margin-left: auto;
+    font-size: 1.5em;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media (min-width: 901px) {
+  .nav .btn.menu-toggle {
+    display: none !important;
+  }
+  .navlinks {
+    display: flex !important;
+    position: static;
+    background: none;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+    min-width: 0;
+  }
+}
+
+/* Garante ícone de menu visível mesmo sem Lucide */
+.nav .btn.menu-toggle i[data-lucide="menu"]:before {
+  content: "\2630";
+  font-size: 1.5em;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0;
+}
+
+/* Fallback SVG para ícone de menu responsivo */
+.nav .btn.menu-toggle svg.fallback-menu-icon {
+  width: 1.7em;
+  height: 1.7em;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  fill: currentColor;
+}
+
+@media (max-width: 900px) {
+  .nav .btn.menu-toggle i[data-lucide="menu"] {
+    min-width: 1.5em;
+    min-height: 1.5em;
+    display: inline-block;
+  }
 }

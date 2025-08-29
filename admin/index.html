@@ -33,14 +33,14 @@
 <main id="main" class="container" role="main">
 
 <link rel="stylesheet" href="../assets/css/admin.css"/>
-<section class="grid grid-2" aria-label="Resumo do sistema">
-    <aside class="sidebar" aria-label="Navegação administrativa">
+<section class="grid" aria-label="Resumo do sistema">
+  <div class="sidebar" aria-label="Navegação administrativa">
     <strong>Seções</strong>
     <a href="solicitacoes.html"><i data-lucide="file-stack" aria-hidden="true"></i> Solicitações</a>
     <a href="idosos.html"><i data-lucide="users" aria-hidden="true"></i> Idosos</a>
     <a href="relatorios.html"><i data-lucide="bar-chart-2" aria-hidden="true"></i> Relatórios</a>
     <a href="config.html"><i data-lucide="settings" aria-hidden="true"></i> Configurações</a>
-  </aside>
+  </div>
   <div>
     <div class="kpis" role="region" aria-label="Indicadores">
       <div class="kpi"><div class="label">Solicitações abertas</div><div class="value" id="kpi-solic-aberto">0</div></div>
@@ -53,9 +53,30 @@
       <div class="chart">
         <canvas id="trendChart" width="600" height="260" aria-label="Gráfico ilustrativo de tendência"></canvas>
       </div>
+      <!-- Small monthly charts: exames por mês & idosos cadastrados por mês -->
+      <div class="grid grid-2" style="margin-top:1rem; gap:1rem;">
+        <div class="card">
+          <h3>Exames realizados por mês</h3>
+          <div class="muted" style="margin-bottom:.5rem">Total últimos 12 meses: <strong id="exames-total">0</strong> — Variação (mês atual vs mês anterior): <strong id="exames-change">0%</strong></div>
+          <div class="chart">
+            <canvas id="examesMonthChart" width="400" height="180" aria-label="Exames por mês"></canvas>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Idosos cadastrados por mês</h3>
+          <div class="muted" style="margin-bottom:.5rem">Total últimos 12 meses: <strong id="idosos-total">0</strong> — Variação (mês atual vs mês anterior): <strong id="idosos-change">0%</strong></div>
+          <div class="chart">
+            <canvas id="idososMonthChart" width="400" height="180" aria-label="Idosos cadastrados por mês"></canvas>
+          </div>
+        </div>
+      </div>
       <p class="muted">Use este painel para monitorar picos de solicitações, medicamentos em falta e programar intervenções.</p>
       <h3 style="margin-top:1rem">Ações rápidas</h3>
-      <div class="toolbar"><button class="btn">Exportar relatório</button> <button class="btn ghost">Filtrar por cidade</button></div>
+      <div class="toolbar">
+        <button class="btn" id="regen-data">Regenerar dados demo</button>
+        <button class="btn">Exportar relatório</button>
+        <button class="btn ghost">Filtrar por cidade</button>
+      </div>
     </div>
   </div>
 </section>

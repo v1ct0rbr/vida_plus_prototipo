@@ -66,7 +66,7 @@ function formatDate(d){
 }
 /* Current city management */
 (function(){
-  const defaultCity = 'Fortaleza';
+  const defaultCity = 'João Pessoa';
   function getCity(){ return localStorage.getItem('vp_city') || defaultCity; }
   function setCity(c){ localStorage.setItem('vp_city', c); announce('Cidade selecionada: '+c); return c; }
   window.VP = window.VP || {};

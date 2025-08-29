@@ -1,6 +1,6 @@
 /* Client-side interactions using MockAPI */
 document.addEventListener('DOMContentLoaded', async () => {
-  const city = VP.getCity ? VP.getCity() : 'Fortaleza';
+  const city = VP.getCity ? VP.getCity() : 'João Pessoa';
   const meds = await MockAPI.listMeds(city);
   const exames = await MockAPI.listExames(city);
 
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   if(medsTbody){
     medsTbody.innerHTML = meds.map(m => `
       <tr role="row">
-        <td>${m.idoso}</td>
+       
         <td>${m.medicamento}<div class="badge">${m.dose}</div></td>
         <td>${m.estoqueDias} dias</td>
         <td>${formatDate(m.receitaVence)}</td>
@@ -74,4 +74,61 @@ document.addEventListener('DOMContentLoaded', async () => {
       qs('#perfil-status').textContent = 'Salvo ✔';
     });
   }
+
+  // Menu responsivo para navegação superior
+  (function() {
+    function toggleMenu() {
+      const nav = document.querySelector('.navlinks');
+      nav.classList.toggle('open');
+      const btn = document.getElementById('menu-toggle');
+      if (btn) btn.setAttribute('aria-expanded', nav.classList.contains('open'));
+    }
+
+    function closeMenuOnResize() {
+      const nav = document.querySelector('.navlinks');
+      if (window.innerWidth > 900 && nav) nav.classList.remove('open');
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // Cria botão de menu se não existir
+      if (!document.getElementById('menu-toggle')) {
+        const header = document.querySelector('.header .container.nav');
+        const navlinks = document.querySelector('.navlinks');
+        if (header && navlinks) {
+          const btn = document.createElement('button');
+          btn.id = 'menu-toggle';
+          btn.className = 'btn ghost menu-toggle';
+          btn.setAttribute('aria-label', 'Abrir menu de navegação');
+          btn.setAttribute('aria-expanded', 'false');
+          // Fallback SVG para garantir ícone (usa fill=currentColor para herdar cor do botão)
+          // Use the computed value for --text so the inline style receives an actual color string
+          try {
+            const resolved = getComputedStyle(document.body).getPropertyValue('--text') || '';
+            btn.style.color = resolved.trim() || '';
+          } catch (err) {
+            // fallback to leaving color unset which will inherit
+            btn.style.color = '';
+          }
+          btn.innerHTML = '' +
+            '<svg class="fallback-menu-icon" viewBox="0 0 24 24" role="img" aria-hidden="false" focusable="false">' +
+              '<title>Menu</title>' +
+              '<path fill="currentColor" d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>' +
+            '</svg>' +
+            '<i data-lucide="menu"></i>';
+          btn.onclick = toggleMenu;
+          // Insere o botão logo após o logo/marca
+          const brand = header.querySelector('.brand');
+          // Ensure navlinks has an id so we can reference it from the button
+          if (navlinks && !navlinks.id) navlinks.id = 'navlinks-main';
+          if (navlinks) btn.setAttribute('aria-controls', navlinks.id);
+          if (brand && brand.nextSibling) {
+            header.insertBefore(btn, brand.nextSibling);
+          } else {
+            header.insertBefore(btn, navlinks);
+          }
+        }
+      }
+      window.addEventListener('resize', closeMenuOnResize);
+    });
+  })();
 });
